@@ -1,0 +1,113 @@
+/* ===== General Set Up ===== */
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Montserrat:wght@200&display=swap');
+
+/* :: <- means before or after*/
+*,*::before, ::after
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html 
+{ 
+    height: 100%;
+    margin: 0;
+}
+
+body
+{
+    text-align: center;
+    background-color:rgba(236, 232, 251, 0.609);
+}
+
+/* ===== HEADER SECTION ===== */
+.home-title
+{
+    text-align: center;
+    background-image: url(../images/home-title-rsz.png);
+    background-size: cover;
+    height: 600px;
+    background-color:rgba(240, 248, 255, 0) !important;;
+}
+
+h1, h2, h3
+{
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+.home-title h1
+{
+    padding-top: 90px;
+    text-decoration: underline;
+    font-size: 4.8rem !important;
+}
+.home-title h3
+{
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: wavy !important;
+}
+
+
+/* ===== BOX FLEX SECTION ===== */
+.mid-boxes-flex
+{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-box
+{
+    /* content setup */
+    text-align: center;
+    display: block;
+    padding: .25em 3em;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-bottom: 2em;
+    width: 20%; */
+    background-color: lavender;
+    border-style: none solid solid none;
+    border-width: 1px;
+    border-radius: 7px;
+    border-color:var(--color-dark);
+    /* typography aesthetics */
+    /* font-weight: var(--fw-reg);
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h3); */
+    text-decoration: none;
+    /* for transition */
+    position: relative;
+    transition: all .4s ease-out;
+}
+.resume::before
+{
+    position: absolute; 
+	left: 0;
+    top: 0;
+	content: "";
+	/* display: block;  */
+	width: 100%;
+	height: 100%;
+    background-image: linear-gradient(to right, #ded2f5a2, #ded2f5af, #ded2f5d2);
+    border-radius: 7px;
+    font-weight: bold;
+	transform-origin: left;
+	transform: scaleY(0);
+	transition: all .4s ease-out;
+}
+.resume:hover::before
+{
+    transform: scaleY(1);
+    color: black;
+}
+/* .resume a
+{
+    color: black;
+} */
