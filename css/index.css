@@ -1,9 +1,12 @@
-/* ===== General Set Up ===== */
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Montserrat:wght@200&display=swap');
 
-/* :: <- means before or after*/
+/* =====    General Set Up     ===== */
+
+/*   *  <- means entire page */
+/*   :  <- means before or after, for CLASSES
+     :: <- means before or after, for ELEMENTS*/
 *,*::before, ::after
 {
     box-sizing: border-box;
@@ -15,6 +18,7 @@ html
 { 
     height: 100%;
     margin: 0;
+    overflow-x: hidden;
 }
 
 body
@@ -23,7 +27,7 @@ body
     background-color:rgba(236, 232, 251, 0.609);
 }
 
-/* ===== HEADER SECTION ===== */
+/* =====      HEADER SECTION      ===== */
 .home-title
 {
     text-align: center;
@@ -52,62 +56,3 @@ h1, h2, h3
     font-family: 'Montserrat', sans-serif;
     text-decoration: wavy !important;
 }
-
-
-/* ===== BOX FLEX SECTION ===== */
-.mid-boxes-flex
-{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-}
-
-.flex-box
-{
-    /* content setup */
-    text-align: center;
-    display: block;
-    padding: .25em 3em;
-    margin-left: auto;
-    margin-right: auto;
-    /* margin-bottom: 2em;
-    width: 20%; */
-    background-color: lavender;
-    border-style: none solid solid none;
-    border-width: 1px;
-    border-radius: 7px;
-    border-color:var(--color-dark);
-    /* typography aesthetics */
-    /* font-weight: var(--fw-reg);
-    font-family: var(--ff-secondary);
-    font-size: var(--fs-h3); */
-    text-decoration: none;
-    /* for transition */
-    position: relative;
-    transition: all .4s ease-out;
-}
-.resume::before
-{
-    position: absolute; 
-	left: 0;
-    top: 0;
-	content: "";
-	/* display: block;  */
-	width: 100%;
-	height: 100%;
-    background-image: linear-gradient(to right, #ded2f5a2, #ded2f5af, #ded2f5d2);
-    border-radius: 7px;
-    font-weight: bold;
-	transform-origin: left;
-	transform: scaleY(0);
-	transition: all .4s ease-out;
-}
-.resume:hover::before
-{
-    transform: scaleY(1);
-    color: black;
-}
-/* .resume a
-{
-    color: black;
-} */
