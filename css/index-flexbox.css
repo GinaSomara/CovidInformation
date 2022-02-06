@@ -22,7 +22,7 @@
     border-radius: 7px;
     border-color: rgba(70, 68, 77, 0.808);
     transition-duration: 0.2s;
-    height: 415px;
+    height: 450px;
 }
 #one, #two, #three 
 {
@@ -68,8 +68,6 @@
 .flex-box:hover
 {
     background-color: rgb(129, 129, 235);
-    /*needed so box does not grow longer to fit image that is "below" the bottom image*/
-    height: 400px;
 }
 
 .flex-box span 
