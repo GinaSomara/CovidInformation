@@ -31,7 +31,7 @@ body
 .home-title
 {
     text-align: center;
-    background-image: url(../images/home-title-rsz.png);
+    background-image: url(../images/home-title.png);
     background-size: cover;
     height: 600px;
     background-color:rgba(240, 248, 255, 0) !important;;

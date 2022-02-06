@@ -1,20 +1,19 @@
 /* =====       BOX FLEX SECTION on HOME page      ===== */
 
-/* Static Specifications */
+/* == Static Set-Up Specifications == */
 .mid-boxes-flex
 {
     margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    height: auto;
 }
-
 .flex-box
 {
     text-align: center;
     text-decoration: none;
-    padding: 2em 3em;
+    padding-top: 2em;
     margin-left: 1em;
     margin-right: 1em;
     background-color: rgb(208, 208, 250);
@@ -23,15 +22,36 @@
     border-radius: 7px;
     border-color: rgba(70, 68, 77, 0.808);
     transition-duration: 0.2s;
-    height: auto;
+    height: 415px;
 }
-
 #one, #two, #three 
 {
-    /* Necessary for all 3 flexboxes to span evenly*/
+    /* Necessary for all 3 flexboxes to span evenly */
     flex-grow: 1;
 }
 
+.bottom-img
+{
+    position: relative;
+    z-index: 1;
+    height: 270px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(46, 33, 235, 0.911);
+}
+.top-img
+{
+    position: relative;
+    opacity: 0;
+    z-index: 2;
+    left: 0px;
+    height: 250px;
+    width: 405px;
+    top: -276px;
+    box-shadow: 0 0 20px rgba(225, 240, 162, 0.911);
+}
+
+
+/* == Flex Box Typography Specifications == */
 .flex-box h3
 {
     font-family: Arial, Helvetica, sans-serif;
@@ -43,27 +63,13 @@
     padding-bottom: 1em;
 }
 
-#bot-image
-{
-    position: relative;
-    z-index: 1;
-}
 
-.img-top
-{
-    position: relative;
-    opacity: 0;
-    z-index: 2;
-    left: 0px;
-    top: -265px;
-}
-
-
-
-/* = Flex Box ANIMATIONS = */
+/* == Flex Box ANIMATIONS == */
 .flex-box:hover
 {
     background-color: rgb(129, 129, 235);
+    /*needed so box does not grow longer to fit image that is "below" the bottom image*/
+    height: 400px;
 }
 
 .flex-box span 
@@ -97,17 +103,24 @@
     right: 0;
 }
 
-.flex-box:hover .img-top
+.flex-box:hover .bottom-img
+{
+    /* display:block; */
+    opacity: 0;
+    transition-duration: 0.7s;
+}
+.flex-box:hover .top-img
 {
     /* display:block; */
     opacity: 1;
-    transition-duration: 1s;
+    transition-duration: 0.6s;
     transform:perspective();
+    height: 275px;
 }
 /* 
 Want photo to transition slowly AFTER hovered on - NOT WORKING 
 
-.flex-box:hover .img-top:after
+.flex-box:hover .top-img:after
 {
     /* display:block;
     transition-duration: 1s;
