@@ -30,6 +30,10 @@
     flex-grow: 1;
 }
 
+a img
+{
+    border-radius: 5px;
+}
 .bottom-img
 {
     position: relative;
@@ -100,6 +104,11 @@
     opacity: 1;
     right: 0;
 }
+.flex-box:hover h3
+{
+    color: rgb(222, 222, 223) !important;
+    text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.), 1px 1px 0 rgba(0, 0, 0, 0.39);
+}
 
 .flex-box:hover .bottom-img
 {
@@ -117,10 +126,9 @@
 }
 /* 
 Want photo to transition slowly AFTER hovered on - NOT WORKING 
-
-.flex-box:hover .top-img:after
+.flex-box:hover .bottom-img:after
 {
-    /* display:block;
     transition-duration: 1s;
     transform:perspective();
-} */
+} 
+*/
