@@ -43,85 +43,18 @@ body
 .header-logo section
 {
     background: linear-gradient(180deg, rgba(235,235,234,1) 20%, rgba(235, 235, 234, 0.815) 40%, rgba(248,249,250,1) 56%);
-    height: 20px;
+    height: 40px;
 }
 
 /* =====      NAV SECTION      ===== */
-/* ul 
-{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #a2abb1;
-    padding-bottom: 80px;
-    position: relative;
-} */
-
-/* li 
-{
-    float: left;
-    position: relative;
-}
-
-li a, .dropbtn 
-{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-   */
-/* li a:hover, .dropdown:hover .dropbtn 
-{
-    background-color: rgba(128, 125, 131, 0.876);
-}
-
-li.dropdown 
-{
-    display: inline-block;
-}
-  
-.dropdown-content 
-{
-    display: none;
-    position: absolute;
-    background-color: #6361bb;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 101;
-} */
-  
-/* .dropdown-content a 
-{
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-  
-.dropdown-content a:hover 
-{
-    background-color: #3fc44a;
-    position: relative;
-}
-  
-.dropdown:hover .dropdown-content 
-{
-    display: block;
-    z-index: 100;
-}
-*/
-
 ul 
 {
     list-style: none;
     background-color: #a2abb1;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
     position: relative;
     background-color: rgba(248,249,250,1);
+    margin-bottom: 0px !important;
 }
 
 li
@@ -131,6 +64,12 @@ li
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16pt;
+    display: block;
+}
+
+li.dropdown
+{
+    padding: 8px 16px !important;
 }
 
 ul a
@@ -157,13 +96,19 @@ ul a:hover
 .dropdown a
 {
     display: block;
-    padding: 6px 10px;
+    padding: 6px 12px;
+}
+
+.dropdown .dropbtn:hover
+{
+    display: block;
+    padding: 8px 19px;
 }
 
 .dropdown-content
 {
     display: none;
-    /* position: absolute; */
+    position: absolute;
 }
 
 .dropdown:hover .dropdown-content
@@ -187,12 +132,12 @@ header a
 
 .home-title
 {
+
     text-align: center;
     background-image: url(../images/home-title.png);
     background-size: cover;
-    height: 600px;
+    height: 550px;
     background-color:rgba(240, 248, 255, 0) !important;
-    z-index: 1;
 }
 
 h1, h2, h3
