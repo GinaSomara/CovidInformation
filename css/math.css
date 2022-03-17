@@ -11,13 +11,14 @@
     margin-left: 40px;
     padding: 12px;
     text-align: center;
+    justify-content: center;
     width: 33%;
-    background-color: rgba(245, 247, 126, 0.726);
+    background-color: rgba(245, 247, 135, 0.527);
     border-radius: 4px;
     box-shadow: -13px -5px 5px rgba(93, 83, 240, 0.822);
 }
 
-/* =====      VALUE (side/length/height) SECTION      ===== */
+/* =====      VALUE PROMPT (side/length/height) SECTION      ===== */
 .math-dropdown
 {
     border-radius: 3px !important;
@@ -28,18 +29,25 @@
 
 #shape-title
 {
+    /* text-decoration: underline; */
+
     font-family: 'Montserrat', sans-serif;
     margin-top: 14px;
+    text-align: left;
+    margin-left: 3em;
 }
 
 #input-1, #input-2, #input-3
 {
-    /* visibility: hidden; */
+    visibility: hidden;
     width: 8em;
     margin: 8px;
-    visibility: hidden;
 }
 
+#calculate-button
+{
+    visibility: hidden;
+}
 
 /* =====      SHAPES SECTION       ===== */
 .rectangle 

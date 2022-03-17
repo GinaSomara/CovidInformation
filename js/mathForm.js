@@ -2,6 +2,7 @@
 var valueInput1;
 var valueInput2;
 var valueInput3;
+var calcButton;
 
 function reset()
 {
@@ -17,6 +18,7 @@ function clicked()
     valueInput1 = document.getElementById('input-1');
     valueInput2 = document.getElementById('input-2');
     valueInput3 = document.getElementById('input-3');
+    calcButton = document.getElementById('calculate-button')
 
     // 1) Clear Form
     reset()
@@ -28,8 +30,15 @@ function clicked()
     // 3) Display shape + area
     valuePrompt(value)
 
-    // 4) Reset Drop Down
-    document.getElementById('shape-selector').selectedIndex = 0
+    // 4) Prompt for shape values
+    formatValueInput(value)
+
+    // Last 2 STEPS - called by 'Calculate' button on HTML
+
+    // 5) Calculate Area os Shape
+    // calcArea(value)
+    // 6) Reset Drop Down
+    // document.getElementById('shape-selector').selectedIndex = 0
 }
 
 // Get Values for Correct Shape
@@ -42,6 +51,7 @@ function valuePrompt(value)
     {
         case 'select':
             shapeTitle.innerHTML = 'Please select a shape value'
+            reset()
             break;
         case 'right':
             shapeTitle.innerHTML = 'Right Triangle'
@@ -52,9 +62,6 @@ function valuePrompt(value)
         default: 
             shapeTitle.innerHTML = value[0].toUpperCase() + value.slice(1);
     }
-
-    // Prompt user for shape values
-    formatValueInput(value)
 }
 
 
@@ -97,7 +104,67 @@ function formatValueInput(shape)
         case 'sphere':
             valueInput1.placeholder = 'Enter Radius'
             break
+        default:
+            console.log('ERROR - shape not found in function formatValueInput()')
     }
+}
+
+function calcArea(shape)
+{
+    let area = 0;
+
+    let side;
+    let side2;
+    let base;
+    let base2;
+    let height;
+    let radius;
+
+    // corresponding shapes will choose correct var name to calculate
+    switch(shape)
+    {
+        case 'rectangle': 
+        case 'square':    
+            side = valueInput1.value
+            side2 = valueInput2.value 
+            console.log(side + ' ' + side2)
+            break
+        case 'trapezoid':
+        case 'parallelogram':
+        case 'acute-obtuse':
+        case 'right':   
+            base = valueInput1.value
+            height = valueInput2.value
+            base2 = valueInput3.value
+            break
+        case 'cylinder':
+        case 'cone':
+        case 'circle':
+        case 'sphere':
+            radius = valueInput1.value
+            height = valueInput2.value
+            break
+        default:
+            console.log('ERROR - shape not found in function calcArea()')
+    }
+
+    switch(shape)
+    {
+        case 'select': return area;
+        case 'rectangle': return side * side
+        case 'square': return side
+        case 'trapezoid':
+        case 'parallelogram':
+        case 'acute-obtuse':
+        case 'right':
+        case 'cylinder':
+        case 'cone':
+        case 'circle':
+        case 'sphere':
+        default:
+            console.log('ERROR - shape not found in function calcArea()')
+    }
+
 }
 
 
@@ -109,7 +176,7 @@ Rectangle:       (2)    side     side
 Parallelogram:   (2)    base     height
 Acute/Obtuse:    (2)    base     height 
 Right:           (2)    base     height
-Trapeziod:       (3)    base     height    height
+Trapeziod:       (3)    base     height    base
 Circle           (1)    radius
 Sphere:          (1)    radius
 Cylinder:        (2)    radius   height 
