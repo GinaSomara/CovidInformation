@@ -1,0 +1,82 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Montserrat:wght@200&display=swap');
+
+
+/* =====      GENERAL MATH SECTION      ===== */
+.math-section
+{
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    padding: 12px;
+    text-align: center;
+    width: 33%;
+    background-color: rgba(245, 247, 126, 0.726);
+    border-radius: 4px;
+    box-shadow: -13px -5px 5px rgba(93, 83, 240, 0.822);
+}
+
+/* =====      VALUE (side/length/height) SECTION      ===== */
+.math-dropdown
+{
+    border-radius: 3px !important;
+    height: 38px;
+    margin-bottom: 30px;
+    background-color: lavender;
+}
+
+#shape-title
+{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 14px;
+}
+
+#input-1, #input-2, #input-3
+{
+    /* visibility: hidden; */
+    width: 8em;
+    margin: 8px;
+    visibility: hidden;
+}
+
+
+/* =====      SHAPES SECTION       ===== */
+.rectangle 
+{
+    height: 50px;
+    width: 100px;
+    background-color: rgb(80, 216, 216);
+}
+
+.circle 
+{
+    height: 70px;
+    width: 70px;
+    background-color: rgb(80, 216, 216);
+    border-radius: 50%;
+}
+
+.triangle {
+	width: 0;
+	height: 0;
+    border-top: 0;
+	border-right: 100px solid transparent;
+	border-bottom: 60px solid rgb(80, 216, 216);
+}
+
+.trapezoid 
+{
+	border-bottom: 50px solid rgb(80, 216, 216);
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 125px;
+}
+
+.rectangle, .circle, .trapezoid, .triangle
+{
+    padding-top: 40px;
+}
+
+

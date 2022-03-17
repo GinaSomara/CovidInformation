@@ -1,4 +1,4 @@
-/* =====       BOX FLEX SECTION on HOME page      ===== */
+/* =====       FLEX BOX SECTION on HOME page      ===== */
 
 /* == Static Set-Up Specifications == */
 .mid-boxes-flex
@@ -51,7 +51,7 @@ a img
     height: 250px;
     width: 405px;
     top: -276px;
-    box-shadow: 0 0 20px rgba(225, 240, 162, 0.911);
+    box-shadow: 0 0 30px rgba(224, 240, 162, 0.931);
 }
 
 
