@@ -24,15 +24,14 @@
     border-radius: 3px !important;
     height: 38px;
     margin-bottom: 30px;
+    margin-top: 10px;
     background-color: lavender;
 }
 
-#shape-title
+.shape-title
 {
     /* text-decoration: underline; */
-
     font-family: 'Montserrat', sans-serif;
-    margin-top: 14px;
     text-align: left;
     margin-left: 3em;
 }
@@ -41,50 +40,24 @@
 {
     visibility: hidden;
     width: 8em;
-    margin: 8px;
+    margin: 6px;
 }
 
 #calculate-button
 {
     visibility: hidden;
+    margin-bottom: 5px;
+}
+
+#areaORerror-display
+{
+    visibility: 'visible';
 }
 
 /* =====      SHAPES SECTION       ===== */
-.rectangle 
+.shapes
 {
-    height: 50px;
-    width: 100px;
-    background-color: rgb(80, 216, 216);
+    height: 0;
+    /* background-color: rgb(90, 207, 228);
+    background-color: rgb(97, 231, 236); */
 }
-
-.circle 
-{
-    height: 70px;
-    width: 70px;
-    background-color: rgb(80, 216, 216);
-    border-radius: 50%;
-}
-
-.triangle {
-	width: 0;
-	height: 0;
-    border-top: 0;
-	border-right: 100px solid transparent;
-	border-bottom: 60px solid rgb(80, 216, 216);
-}
-
-.trapezoid 
-{
-	border-bottom: 50px solid rgb(80, 216, 216);
-	border-left: 25px solid transparent;
-	border-right: 25px solid transparent;
-	height: 0;
-	width: 125px;
-}
-
-.rectangle, .circle, .trapezoid, .triangle
-{
-    padding-top: 40px;
-}
-
-

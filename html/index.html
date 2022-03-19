@@ -99,7 +99,6 @@
                 <h2><u>Take a Math Break</u></h2>
 
                 <h5 >Select a Shape to Calculate the Area :</h5>
-                <br>
                 <select class="math-dropdown" id="shape-selector">
                     <option value="select">Select a Shape</option>
                     <option value="square">Square</option>
@@ -115,17 +114,18 @@
                 </select>                 
                 <button type="submit" id="math-button" onclick="clicked()">Let's Go!</button>
 
-                <!-- Javascript Prompts -->
-                <h4 id="shape-title"></h4>
+                <!-- Javascript Value Prompts -->
+                <h4 class="shape-title" id="shape-title"></h4>
 
-                <input type="number" class="input" placeholder="" id="input-1" min="1" max="15" autocomplete="off">
-                <input type="number" class="input" placeholder="" id="input-2" min="1" max="15" autocomplete="off"> <br>
-                <input type="number" class="input" placeholder="" id="input-3" min="1" max="15" autocomplete="off"><br>
+                <input type="number" class="input" placeholder="" id="input-1" min="1" max="20" autocomplete="off">
+                <input type="number" class="input" placeholder="" id="input-2" min="1" max="20" autocomplete="off"> <br>
+                <input type="number" class="input" placeholder="" id="input-3" min="1" max="20" autocomplete="off"><br>
                 <button type="submit" id="calculate-button" onclick="calcArea()">Calculate</button>
 
+                <h5 class="shape-title" id="areaORerror-display"></h5>
 
                 <!-- Javascript Shapes -->
-                
+                <div class="shapes"></div>
         </div>
     </div>    
 
