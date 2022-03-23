@@ -25,7 +25,6 @@ function reset()
     area_errorTag.innerHTML = ''
 }
 
-
 // START
 function clicked() 
 {
@@ -117,22 +116,21 @@ function formatValueInput()
 function calcArea()
 {
     let areaMessage = document.getElementById('areaORerror-display')
-    // area_errorTag.visibility = 'visible'
 
     // check values first  
-    // if(!valueChecking(areaMessage))    //areaTag will ALSO server as the error message
-    //     return;
+    if(!valueChecking(areaMessage))    //areaTag will ALSO server as the error message
+        return
+    
 
-    valueChecking(areaMessage)
-
-    let area = 0;
+    let area = 0
+    let volume = 0
     let pi = 3.14
-    let side;
-    let side2;
-    let base;
-    let base2;
-    let height;
-    let radius;
+    let side
+    let side2
+    let base
+    let base2
+    let height
+    let radius
 
     // corresponding shapes will choose correct var name used to calculcate area
     switch(shape)
@@ -161,7 +159,7 @@ function calcArea()
             console.log('ERROR 1 - shape not found in function calcArea()')
     }
 
-    // check values are not empty & calculate area and display  -
+    // calculate area and display
     switch(shape)
     {
         case 'select': return;
@@ -173,17 +171,25 @@ function calcArea()
             console.log('area = ' + area)
             break;
         case 'trapezoid':     
-            area = (area + base) / height * 2
+            //conversion to int is needed because without it, (base2+base) will add two strings together, like 1 + 3 = 13
+            base2 = parseInt(base2, 10)  //convert to int
+            base = parseInt(base, 10)    //convert to int
+            area = (base2 + base) * height / 2
             break;
         case 'parallelogram': 
-        case 'acute-obtuse':
-        case 'right':        
             area = base * height;
             break;
+        case 'acute-obtuse':
+        case 'right':        
+            area = base * height / 2;
+            break;
         case 'cylinder':    
-            area = 2 * pi * radius * height + 2 * Math.pow(pi, 2)
+            pi_r_h_2 = parseInt(2 * pi * radius * height, 10)
+            area = pi_r_h_2 + 2 * pi * Math.pow(radius, 2)
             break;
         case 'cone':    
+            // Math.pow/sqrt automatically return ints, but radius needs to be an int in order to properly add values
+            radius = parseInt(radius, 10)
             area = pi * radius * (radius + Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2)))
             break;
         case 'circle':
@@ -201,28 +207,6 @@ function calcArea()
 
 function valueChecking(errorMessage)
 {
-    const regex = new RegExp('([1-9]|1\d|20)');
-
-    // WORKS:
-    //   ^[1-9]+[0-9]*$  but can go higher than 20, but no negatives!
-    // ^^ should also include  &&  <= 20
-
-    // if(regex.test(valueInput1.value))
-    if(valueInput1.value.match('^[1-9]+[0-9]*$'))
-        console.log('regex turned out true')
-    else 
-        console.log('regex is false')
-
-    // values must be > 0 && < 20
-    // if(
-    //     valueInput1.value < 0 || valueInput1.value > 20 || 
-    //     valueInput2.value < 0 || valueInput2.value > 20 ||
-    //     valueInput3.value < 0 || valueInput3.value > 20) {
-    //     errorMessage.innerHTML = 'OOPS - Values must be 1 -> 20 units'
-    //     return;
-    // }
-
-    
     /*  shapes with corresponding value boxes: 
     square ->        input1       
     circle ->        input1 
@@ -234,35 +218,85 @@ function valueChecking(errorMessage)
     cone ->          input1   input2
     trapezoid ->     input1   input2   input3
     */
+
+    // true until proven false
+    let booleanReturn = true
+
+    console.log('value 1 = ' + valueInput1.value)
+    console.log('value 2 = ' + valueInput2.value)
+    console.log('value 3 = ' + valueInput3.value)
+
+
     // ensuring values are not empty
     switch(shape)
     {
         case 'rectangle':
-            if(valueInput2.value == '')
+            if(valueInput2.value == '') {
                 errorMessage.innerHTML = 'Please Enter Side'
+                booleanReturn = false
+            }    
         case 'square':
-            if(valueInput1.value == '') 
+            if(valueInput1.value == '') {
                 errorMessage.innerHTML = 'Please Enter Side'
-            return false;
+                booleanReturn = false
+            }    
+            break;
         case 'cylinder':
         case 'cone':
-            if(valueInput2.value == '') 
+            if(valueInput2.value == '') {
                 errorMessage.innerHTML = 'Please Enter Height'
+                booleanReturn = false
+            }
         case 'circle':
         case 'sphere':
-            if(valueInput1.value == '') 
+            if(valueInput1.value == '') {
                 errorMessage.innerHTML = 'Please Enter Radius'
+                booleanReturn = false
+            }
             break;
         case 'trapezoid':
-            if(valueInput3.value == '')
+            if(valueInput3.value == '') {
                 errorMessage.innerHTML = 'Please Enter Second Base'
+                booleanReturn = false
+            }
         case 'parallelogram':
         case 'right':
         case 'acute-obtuse':
-            if(valueInput1.value == '') 
+            if(valueInput1.value == '') {
                 errorMessage.innerHTML = 'Please Enter Base'
-            if(valueInput2.value == '') 
+                booleanReturn = false
+                break;
+            }
+            if(valueInput2.value == '') {
                 errorMessage.innerHTML = 'Please Enter Height'
+                booleanReturn = false
+            }
             break;
     }
+
+    //check early return 
+    if(!booleanReturn)
+        return booleanReturn
+
+
+    // checking for 0 - 20 values
+    if(valueInput1.value < 0 || valueInput1.value > 20)
+    {
+        booleanReturn = false
+        errorMessage.innerHTML = 'Values should be between 0 - 20'
+    }
+
+    if(valueInput2.value != '' && (valueInput2.value < 0 || valueInput2.value > 20))
+    {
+        booleanReturn = false
+        errorMessage.innerHTML = 'Values should be between 0 - 20'
+    }
+
+    if(valueInput3.value != '' && (valueInput3.value < 0 || valueInput3.value > 20))
+    {
+        booleanReturn = false
+        errorMessage.innerHTML = 'Values should be between 0 - 20'
+    }
+
+    return booleanReturn
 }
