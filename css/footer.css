@@ -1,0 +1,48 @@
+/* =====      FOOTER SECTION      ===== */
+footer
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+footer a 
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer input
+{
+    border-radius: 6px;
+    height: 38px;
+}
+
+button
+{
+    border-radius: 8px !important;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: rgb(208, 208, 250);
+    height: 38px;
+}
+button:hover
+{
+    background-color: rgb(129, 129, 235);
+    color: white;
+}
+
+hr
+{
+    width: 75%;
+    margin: auto !important;
+}
+
+#oneFooter   {order: 1}
+#twoFooter   {order: 2}
+#threeFooter {order: 3}
+#fourFooter  {order: 4;
+    padding-left: 13px}

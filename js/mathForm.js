@@ -21,8 +21,13 @@ function reset()
     calcButton.style.visibility = 'hidden'
 
     let area_errorTag = document.getElementById('areaORerror-display')
-    // area_errorTag.visibility = 'hidden'
     area_errorTag.innerHTML = ''
+
+    let perimeterTag = document.getElementById('perimeterORvolume-display')
+    perimeterTag.innerHTML = ''
+
+    let displayedShape = document.getElementById('display-shapes')
+    displayedShape.style.height = '0px'
 }
 
 // START
@@ -92,7 +97,13 @@ function formatValueInput()
         case 'trapezoid':
             valueInput3.style.visibility = 'visible'
             valueInput3.placeholder = 'Enter Base'
+            valueInput1.placeholder = 'Enter Base'
+            valueInput2.style.visibility = 'visible'
+            valueInput2.placeholder = 'Enter Height'
+            break;
         case 'parallelogram':
+            valueInput3.style.visibility = 'visible'
+            valueInput3.placeholder = 'Enter Side'
         case 'acute-obtuse':
         case 'right':
             valueInput1.placeholder = 'Enter Base'
@@ -116,14 +127,17 @@ function formatValueInput()
 function calcArea()
 {
     let areaMessage = document.getElementById('areaORerror-display')
+    let perimeterMessage = document.getElementById('perimeterORvolume-display')
 
-    // check values first  
+    // check values first, if true, user will need to re-attempt data entry 
     if(!valueChecking(areaMessage))    //areaTag will ALSO server as the error message
+    {
+        perimeterMessage.innerHTML = ''
         return
-    
-
+    }
     let area = 0
-    let volume = 0
+    let perimeter = 0
+    let volume = 0 
     let pi = 3.14
     let side
     let side2
@@ -131,6 +145,7 @@ function calcArea()
     let base2
     let height
     let radius
+    let hypotenuse
 
     // corresponding shapes will choose correct var name used to calculcate area
     switch(shape)
@@ -140,8 +155,9 @@ function calcArea()
             side = valueInput1.value
             side2 = valueInput2.value   //not used by square
             break;
-        case 'trapezoid':
         case 'parallelogram':
+            side = valueInput3.value
+        case 'trapezoid':
         case 'acute-obtuse':
         case 'right':   
             base = valueInput1.value
@@ -159,50 +175,96 @@ function calcArea()
             console.log('ERROR 1 - shape not found in function calcArea()')
     }
 
-    // calculate area and display
+    // calculate area/perimeter/volume and display
     switch(shape)
     {
         case 'select': return;
         case 'rectangle':     
             area = side * side2
+            perimeter = (side * 2) + (side2 * 2)
             break;
         case 'square':        
             area = side * side
-            console.log('area = ' + area)
+            perimeter = side * 4
             break;
         case 'trapezoid':     
             //conversion to int is needed because without it, (base2+base) will add two strings together, like 1 + 3 = 13
             base2 = parseInt(base2, 10)  //convert to int
             base = parseInt(base, 10)    //convert to int
             area = (base2 + base) * height / 2
+
+            /* need to find both sides (from height) for trapezoid perimeter
+            *     __     <- like so
+            *    /__\  turns into two right triangles + square
+            * NOTE: trapezoids are assumed with have EVEN sides */
+            let trianglebases = Math.abs(base - base2) / 2
+            let sides = Math.sqrt(Math.pow(height, 2) + Math.pow(trianglebases,2)) //one side
+            sides = sides * 2
+
+            perimeter = base + base2 + sides 
             break;
         case 'parallelogram': 
             area = base * height;
+            base = parseInt(base, 10)
+            height = parseInt(height, 10)
+            perimeter = 2 * (base + height)
             break;
         case 'acute-obtuse':
+            area = base * height / 2;
+
+            // equally dividing base 
+            base = base / 2
+            hypotenuse = Math.sqrt(Math.pow(base, 2) + Math.sqrt(height, 2))
+            console.log('hypot for acute/obtuse= ' + hypotenuse)
+            // for one side triangle, so need to multiple by 2
+            perimeter = (hypotenuse + base + height) * 2
+            break;
         case 'right':        
             area = base * height / 2;
+
+            base = parseInt(base, 10)
+            height = parseInt(height, 10)
+            hypotenuse = Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2))
+            console.log('hypot for acute/obtuse= ' + hypotenuse)
+
+            perimeter = hypotenuse + base + height
             break;
         case 'cylinder':    
             pi_r_h_2 = parseInt(2 * pi * radius * height, 10)
             area = pi_r_h_2 + 2 * pi * Math.pow(radius, 2)
+            volume = pi * Math.pow(radius, 2) * height
             break;
         case 'cone':    
             // Math.pow/sqrt automatically return ints, but radius needs to be an int in order to properly add values
             radius = parseInt(radius, 10)
             area = pi * radius * (radius + Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2)))
+            volume = pi * Math.pow(radius, 2) * height / 3;
+            console.log(volume)
             break;
         case 'circle':
             area = pi * Math.pow(radius, 2)
+            perimeter = 2 * pi * radius
             break;
         case 'sphere':
             area = 4 * pi * Math.pow(radius, 2)
+            volume = 4 / 3 * pi * Math.pow(radius, 3)
             break;
         default:
             console.log('ERROR 2 - shape not found in function calcArea()')
     }
 
-    areaMessage.innerHTML = 'Area: ' + area.toFixed(2) + ' units'
+    // Display area for all shapes
+    areaMessage.innerHTML = 'Area: ' + area.toFixed(2) + ' units' 
+
+    // 3D shapes display Volume     - all others display perimeter
+    if(shape == 'cone' || shape == 'sphere' || shape == 'cylinder')
+        perimeterMessage.innerHTML = 'Volume: ' + volume.toFixed(2) + ' units'
+    else if (shape == 'trapezoid' || shape == 'acute-obtuse' || shape == 'right')
+        perimeterMessage.innerHTML = 'Perimeter: ' + perimeter.toFixed(0) + ' units  (w/ even sides)'     
+    else // 2D shapes
+        perimeterMessage.innerHTML = 'Perimeter: ' + perimeter.toFixed(0) + ' units'  
+
+    displayShape()
 }
 
 function valueChecking(errorMessage)
@@ -259,7 +321,22 @@ function valueChecking(errorMessage)
                 errorMessage.innerHTML = 'Please Enter Second Base'
                 booleanReturn = false
             }
+            if(valueInput1.value == '') {
+                errorMessage.innerHTML = 'Please Enter Base'
+                booleanReturn = false
+                break;
+            }
+            if(valueInput2.value == '') {
+                errorMessage.innerHTML = 'Please Enter Height'
+                booleanReturn = false
+            }
+            break;
         case 'parallelogram':
+            if(valueInput3.value == '') {
+                errorMessage.innerHTML = 'Please Enter Side'
+                booleanReturn = false
+                break;
+            }      
         case 'right':
         case 'acute-obtuse':
             if(valueInput1.value == '') {
@@ -274,7 +351,7 @@ function valueChecking(errorMessage)
             break;
     }
 
-    //check early return 
+    //check early return, will prompt error messages
     if(!booleanReturn)
         return booleanReturn
 
@@ -299,4 +376,26 @@ function valueChecking(errorMessage)
     }
 
     return booleanReturn
+
+    /*
+     Come back To:
+        weird input that is accepted:
+            1) 7- and 7-- is read as ' '
+            2) 7+ is read as ' '  
+                * 7 could be any number between 0 - 20
+    */
+}
+
+function displayShape()
+{
+    let displayedShape = document.getElementById('display-shapes')
+
+    //scale every input X4
+
+    // switch(shape)
+    // {
+    //     case 'triangle':
+    //         displayShape.style.height = 
+
+    // }
 }
