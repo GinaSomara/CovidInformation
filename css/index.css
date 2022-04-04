@@ -58,9 +58,8 @@ h1, h2, h3
 }
 .home-title h3
 {
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
     font-family: 'Montserrat', sans-serif;
-    text-decoration: wavy !important;
 } 
 
 

@@ -9,6 +9,11 @@ footer
     justify-content: flex-start;
 }
 
+footer h3
+{
+    font-weight: 200;
+}
+
 footer a 
 {
     padding-left: 15px;
@@ -33,12 +38,6 @@ button:hover
 {
     background-color: rgb(129, 129, 235);
     color: white;
-}
-
-hr
-{
-    width: 75%;
-    margin: auto !important;
 }
 
 #oneFooter   {order: 1}

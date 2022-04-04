@@ -1,6 +1,7 @@
-<?php
-require "views/nav.php";
+<?php 
+    require "views/nav.php"; 
 ?>
+
 <!-- <!DOCTYPE html> declaration to the webpage about type of document to expect * NOT a html <tag> -->
 <html lang="en">
     <head>
@@ -16,7 +17,9 @@ require "views/nav.php";
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/index-flexbox.css">
         <link rel="stylesheet" href="css/math.css">
+        <link rel="stylesheet" href="css/nav.css">
         <script src="js/mathForm.js"></script>
+        
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <!-- JavaScript Bundle -- Nav Bar -->
@@ -30,8 +33,8 @@ require "views/nav.php";
     </head>
 
     <body>
-        <header>
 
+        <header>
             <div class="home-title">
                 <h1><strong>~ Welcome To Covid Info ~</strong></h1>
                 <br><br>
@@ -39,22 +42,21 @@ require "views/nav.php";
             </div>     
         </header>
 
+        <!--Mid boxes Section w/ image changings -->
         <div class="mid-boxes-flex">
 
-            <!-- <div class="flex-box" id="one"> -->
-                <a class="flex-box" id="one" href="#">
-                    <h3><u>Testing Centers</u></h3>
-                    <span> Find a testing location near you</span>
-                    <!-- For the Image change-->
-                    <img class="bottom-img" src="images/testing-1.png" alt="testing image">
-                    <img class="top-img" id="testing-img" src="images/testing-2.png" alt="testing image 2">
-                </a>
-            <!-- </div> -->
+            <a class="flex-box" id="one" href="views/covid-testing.php">
+                <h3><u>Testing Centers</u></h3>
+                <span> Find a testing location near you</span>
+                <!-- Image change -->
+                <img class="bottom-img" src="images/testing-1.png" alt="testing image">
+                <img class="top-img" id="testing-img" src="images/testing-2.png" alt="testing image 2">
+            </a>
 
             <a class="flex-box" id="two" href="#">
                 <h3><u>Health</u></h3>
                 <span>What you can do to stay healthy</span>
-                <!-- For the Image change-->
+                <!-- Image change -->
                 <img class="bottom-img" src="images/health-1.png" alt="health image">
                 <img class="top-img" id="health-img" src="images/health-2.png" alt="health image 2">
             </a>
@@ -62,7 +64,7 @@ require "views/nav.php";
             <a class="flex-box" id="three"  href="#">
                 <h3><u>Science & Data</u></h3>
                 <span>Read some of the latest information</span>
-                <!-- For the Image change-->
+                <!-- Image change -->
                 <img class="bottom-img" src="images/science-1.png" alt="covid image">
                 <img class="top-img" id="science-img" src="images/science-2.png" alt="covid image">
             </a>
@@ -111,7 +113,7 @@ require "views/nav.php";
                     <div class="shapes" id="display-shapes"></div>
             </div>
         </div>    
-        
+
         <br>
         <hr>
     </body>
@@ -119,5 +121,5 @@ require "views/nav.php";
 </html>
 
 <?php
-require "views/footer.php";
+    require "views/footer.php";
 ?>

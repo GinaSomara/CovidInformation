@@ -1,0 +1,82 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Condensed:wght@300&display=swap');
+
+html 
+{ 
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body
+{
+    /* background-color: linear-gradient(180deg, rgba(235,235,234,1) 20%, rgba(235, 235, 234, 0.815) 40%, rgba(248,249,250,1) 56%); */
+    background-color: rgba(235, 235, 234, 0.795);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.parking-message
+{
+    border:  1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    width: fit-content;
+    margin: 20px 10px 30px; /* #top #sides #bottom */
+    padding: 10px;
+    background-color: rgba(248,249,250,1);
+}
+
+.parking-message h3 { font-weight: 700; }
+
+.parking-message p
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+}
+
+.register-form
+{
+    border:  1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background-color: rgba(248,249,250,1);
+    width: fit-content;
+    margin: 20px 10px 30px; /* #top #sides #bottom */
+    padding: 18px;
+    font-weight: 500;
+    margin-bottom: 230px;
+}
+
+/* To make a table out of register form */
+form  { display: table;      }
+.table-row { display: table-row;  }
+label 
+{ 
+    font-size: large;
+    display: table-cell; 
+    padding-right: 9px;
+}
+input
+{ 
+    display: table-cell; 
+    border:  1px solid rgba(46, 33, 235, 0.911);
+    border-radius: 7px;
+    height: 30px;
+    width: 200px;
+}
+
+
+button
+{
+    border-radius: 8px !important;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: rgb(208, 208, 250);
+    height: 38px;
+    float: right;
+}
+button:hover
+{
+    background-color: rgb(129, 129, 235);
+    color: white;
+}
