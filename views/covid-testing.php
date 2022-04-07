@@ -49,10 +49,12 @@
                     <label for="l-email" id="frm_lblfields"><span>*</span>Phone No:</label>
                     <input type="text" id="frm_txtfields" name="usr-email" required><br/><br/>	
                 </div>
-                <!-- <div class="table-row">
-                    <label for="l-address" id="frm_lblfields"><span>*</span>Address:</label>
-                    <input type="text" id="frm_txtfields" name="usr-email-confirm" required><br/><br/>	
-                </div>	 -->
+                <div class="table-row">
+                    <label for="ul-email" id="frm_lblfields"><span>*</span>Address:</label>
+                    <input type="text" id="frm_txtfields1" name="usr-last-name" required><br/>	<br/>	
+                    <input type="text" id="frm_txtfields2" name="usr-last-name" required><br/>	<br/>	
+                </div>
+
                 <button type="submit">Register</button>
 		    </form>
         </div>
