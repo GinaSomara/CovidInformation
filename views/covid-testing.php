@@ -26,33 +26,44 @@
             <p>Depending upon testing location, parking may be on/off site. If off site, parking fees may be required varying in rates. Please check local areas for parking information before departing. </p>
         </div>
 
-        <div class="register-form">
-            <form class="frm-sign-up" action="get_data.php" method="POST">
+        <div class="flex-box"> 
 
-                <div class="table-row">
-                    <label for="first-name"><span>*</span>First Name</label>
-                    <input type ="text" name="first-name"  required><br/>	<br/>	
-                </div>	
-                <div class="table-row">
-                    <label for="last-name"><span>*</span>Last Name</label>
-                    <input type="text" name="last-name" required><br/>	<br/>	
-                </div>
-                <div class="table-row">
-                    <label for="email"><span>*</span>Email</label>
-                    <input type="text" name="email" required><br/><br/>	
-                </div>
-                <div class="table-row">
-                    <label for="phone-no"><span>*</span>Phone No</label>
-                    <input type="text" name="phone-no" required><br/><br/>	
-                </div>
-                <div class="table-row">
-                    <label for="zipcode"><span>*</span>Zip Code</label>
-                    <input type="number" name="zipcode" min="10000" required><br/>	<br/>	
-                </div>
+            <div class="register-form" id="left-box">
+                <form class="frm-sign-up" action="get_data.php" method="POST">
 
-                <button type="submit">Register</button>
-		    </form>
-        </div>
+                    <div class="table-row">
+                        <label for="first-name"><span>*</span>First Name</label>
+                        <input type ="text" name="first-name"  required><br/>	<br/>	
+                    </div>	
+                    <div class="table-row">
+                        <label for="last-name"><span>*</span>Last Name</label>
+                        <input type="text" name="last-name" required><br/>	<br/>	
+                    </div>
+                    <div class="table-row">
+                        <label for="email"><span>*</span>Email</label>
+                        <input type="text" name="email" required><br/><br/>	
+                    </div>
+                    <div class="table-row">
+                        <label for="phone-no"><span>*</span>Phone No</label>
+                        <input type="text" name="phone-no" required><br/><br/>	
+                    </div>
+                    <div class="table-row">
+                        <label for="zipcode"><span>*</span>Zip Code</label>
+                        <input type="number" name="zipcode" min="10000" required><br/>	<br/>	
+                    </div>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+            
+
+            <div class="notice-messgae" id="right-box">
+                <h3>Success!</h3>
+                <p>You are Registered. Don't forget to bring a Government issued ID to your appointment.</p>
+            </div>
+
+
+        </div>    
 
         <hr>
         <br>
