@@ -65,6 +65,9 @@ input
     width: 200px;
 }
 
+span {
+    color: red;
+}
 
 button
 {

@@ -16,7 +16,6 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
-
         <title>COVID-19 Testing</title>	
     </head>
 
@@ -28,31 +27,27 @@
         </div>
 
         <div class="register-form">
-            <form class="frm-sign-up" action="../library/register.php" method="POST">
+            <form class="frm-sign-up" action="get_data.php" method="POST">
+
                 <div class="table-row">
-                    <label for="usr-first-name" id="frm_lblfields"><span>*</span>First Name:</label>
-                    <input type ="text" id="frm_txtfields" name="usr-first-name" required><br/>	<br/>	
+                    <label for="first-name"><span>*</span>First Name</label>
+                    <input type ="text" name="first-name"  required><br/>	<br/>	
                 </div>	
                 <div class="table-row">
-                    <label for="ul-email" id="frm_lblfields"><span>*</span>Last Name:</label>
-                    <input type="text" id="frm_txtfields" name="usr-last-name" required><br/>	<br/>	
+                    <label for="last-name"><span>*</span>Last Name</label>
+                    <input type="text" name="last-name" required><br/>	<br/>	
                 </div>
                 <div class="table-row">
-                    <label for="ul-email" id="frm_lblfields"><span>*</span>User Name:</label>
-                    <input type="text" id="frm_txtfields" name="usr-last-name" required><br/>	<br/>	
+                    <label for="email"><span>*</span>Email</label>
+                    <input type="text" name="email" required><br/><br/>	
                 </div>
                 <div class="table-row">
-                    <label for="l-email" id="frm_lblfields"><span>*</span>Email:</label>
-                    <input type="text" id="frm_txtfields" name="usr-email" required><br/><br/>	
+                    <label for="phone-no"><span>*</span>Phone No</label>
+                    <input type="text" name="phone-no" required><br/><br/>	
                 </div>
                 <div class="table-row">
-                    <label for="l-email" id="frm_lblfields"><span>*</span>Phone No:</label>
-                    <input type="text" id="frm_txtfields" name="usr-email" required><br/><br/>	
-                </div>
-                <div class="table-row">
-                    <label for="ul-email" id="frm_lblfields"><span>*</span>Address:</label>
-                    <input type="text" id="frm_txtfields1" name="usr-last-name" required><br/>	<br/>	
-                    <input type="text" id="frm_txtfields2" name="usr-last-name" required><br/>	<br/>	
+                    <label for="zipcode"><span>*</span>Zip Code</label>
+                    <input type="number" name="zipcode" min="10000" required><br/>	<br/>	
                 </div>
 
                 <button type="submit">Register</button>
