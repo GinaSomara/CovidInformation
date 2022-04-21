@@ -1,44 +1,104 @@
-<!-- <link rel="stylesheet" href="css/nav.css"> -->
-<?php 
-
-    $hola = getcwd();
-    $spansih = 'spanish';
-
-    $js_code = 'console.log(' . json_encode($hola, JSON_HEX_TAG) . ');';
-    $js_code = '<script>' . $js_code . '</script>';
-    echo $js_code;
-?>
-
+<!-- NOTE: Nav is read from index ~ (which includes main) and also from other php views ~ (all contained within the views folder).
+           The routing to each link will be different depenedent upon wether current page is main or another page. Therefore different links will be needed for the correct corresponding page. 
+-->
 
 <div class="header-logo">
-        <img src="images/covid-logo-2.png" alt="">
+
+    <?php
+        //to find where we are at in directory
+        $currentFile = $_SERVER['PHP_SELF'];
+        if ($currentFile=="/covid/index.php") {
+            echo '<img src="images/covid-logo-2.png" alt="">';
+        } else {
+            echo '<img src="../images/covid-logo-2.png" alt="">';
+        }
+    ?>
     <!-- gradient section -->
     <section></section>
 </div>
 
 <ul>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><?php echo'<a href="views/covid-testing.php">Testing Centers</a>';?></li>
-    <li class="dropdown">
-        <a class="dropbtn">Health & Life</a>
-        <div class="dropdown-content">
-        <a href="#">Vaccines</a>
-        <hr>
-        <a href="#">Proactive Prevention</a>
-        <a href="#">Overcoming Covid</a>
-        </div>
-    </li>
-    <li class="dropdown">
-        <a class="dropbtn">Cases</a>
-    <div class="dropdown-content">
-                <a href="#">United States</a>
-                <a href="#">US Vs Florida</a>
-            </div>
-    </li>
-    <li><?php echo'<a href="../index.php">Home</a>';?></li>
-    <li><img src="images/global.png" alt="" class="nav-img"></li>
-    
+    <?php
+        //to find where we are at in directory
+        $currentFile = $_SERVER['PHP_SELF'];
+        $js_code = 'console.log(' . json_encode($currentFile, JSON_HEX_TAG) . ');';
+		$js_code = '<script>' . $js_code . '</script>';
+		echo $js_code;
+
+
+        if ($currentFile=="/covid/index.php") {
+
+            $js_code = 'console.log(' . json_encode('Nav IF has been entered', JSON_HEX_TAG) . ');';
+            $js_code = '<script>' . $js_code . '</script>';
+            echo $js_code;
+
+            echo '    
+                <li><a href="#">Contact Us</a></li>
+
+                <li><a href="#">About Us</a></li>
+
+                <li><a href="views/covid-testing.php">Testing Centers</a></li>
+
+                <li class="dropdown">
+                    <a class="dropbtn">Health & Life</a>
+                    <div class="dropdown-content">
+                    <a href="#">Vaccines</a>
+                    <hr>
+                    <a href="#">Proactive Prevention</a>
+                    <a href="#">Overcoming Covid</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropbtn">Cases</a>
+                    <div class="dropdown-content">
+                            <a href="#">United States</a>
+                            <a href="#">US Vs Florida</a>
+                    </div>
+                </li>
+
+                <li><a href="#">Home</a></li>
+
+                <li><img src="images/global.png" alt="" class="nav-img"></li>';
+    } else {
+
+        $js_code = 'console.log(' . json_encode('Nav ELSE has been entered', JSON_HEX_TAG) . ');';
+        $js_code = '<script>' . $js_code . '</script>';
+        echo $js_code;
+
+        echo '    
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+
+                <li><a href="covid-testing.php">Testing Centers</a></li>
+
+                <li class="dropdown">
+                    <a class="dropbtn">Health & Life</a>
+                    <div class="dropdown-content">
+                    <a href="#">Vaccines</a>
+                    <hr>
+                    <a href="#">Proactive Prevention</a>
+                    <a href="#">Overcoming Covid</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a class="dropbtn">Cases</a>
+                    <div class="dropdown-content">
+                            <a href="#">United States</a>
+                            <a href="#">US Vs Florida</a>
+                    </div>
+                </li>
+
+                <li><a href="../index.php">Home</a></li>
+                
+                <li><img src="../images/global.png" alt="" class="nav-img"></li> ';
+    }
+    ?>
+
+
 </ul>
+
+
+
 
 
