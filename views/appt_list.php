@@ -1,8 +1,12 @@
 <?php
-include_once "db_connection.php";
+
+	include_once "db_connection.php";
+
 	$conn = new connection_helper("cs340db");
 	$conn_str = $conn->get_connection_string();
-	$qrylocation=mysqli_query($conn_str,"SELECT * from tbl_appointment");		
+	
+	$qrylocation=mysqli_query($conn_str,"SELECT * from tbl_appointment");	
+
 	if($qrylocation->num_rows>0)
 	{
 		$delimeter =",";
@@ -17,10 +21,14 @@ include_once "db_connection.php";
 			fputcsv($file_pointer, $data, $delimeter);
 		}
 		fseek($file_pointer, 0);
+
 		//set for download, not to display
 		header('content-type: txt/csv');
 		header('content-Disposition: attachment; filename="' .$file_name .'";');
 		fpassthru($file_pointer);
 	}
+
+	// $conn_str->close();
+	
 	exit;
 ?>

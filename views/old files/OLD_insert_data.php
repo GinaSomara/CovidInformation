@@ -36,8 +36,7 @@
 					</script>");
 
 					//header("Location: ../views/covid-testing.php?register=success"); 	
-				}	
-				else {
+				} else {
 					//alert pop-up box - Failed
 					echo ("<script LANGUAGE='JavaScript'>
 					window.alert('Appointment Registration Failed. A scheduled appointment w/ provided email is already in the system.');

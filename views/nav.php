@@ -21,16 +21,9 @@
     <?php
         //to find where we are at in directory
         $currentFile = $_SERVER['PHP_SELF'];
-        $js_code = 'console.log(' . json_encode($currentFile, JSON_HEX_TAG) . ');';
-		$js_code = '<script>' . $js_code . '</script>';
-		echo $js_code;
 
 
-        if ($currentFile=="/covid/index.php") {
-
-            $js_code = 'console.log(' . json_encode('Nav IF has been entered', JSON_HEX_TAG) . ');';
-            $js_code = '<script>' . $js_code . '</script>';
-            echo $js_code;
+        if($currentFile=="/covid/index.php") {
 
             echo '    
                 <li><a href="#">Contact Us</a></li>
@@ -61,10 +54,6 @@
 
                 <li><img src="images/global.png" alt="" class="nav-img"></li>';
     } else {
-
-        $js_code = 'console.log(' . json_encode('Nav ELSE has been entered', JSON_HEX_TAG) . ');';
-        $js_code = '<script>' . $js_code . '</script>';
-        echo $js_code;
 
         echo '    
                 <li><a href="#">Contact Us</a></li>

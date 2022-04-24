@@ -11,7 +11,7 @@
 		private $db_name;    
 
 		function __construct($dbname)
-		{
+		{		
 			$this->server_name = "localhost";
 			$this->server_user_name = "root";
 			$this->server_password = "";

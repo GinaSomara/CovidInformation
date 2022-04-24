@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="css/index-flexbox.css">
         <link rel="stylesheet" href="css/math.css">
         <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/footer.css">
         <script src="js/mathForm.js"></script>
         
         <!-- Bootstrap CSS -->

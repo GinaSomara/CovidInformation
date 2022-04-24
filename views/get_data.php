@@ -1,5 +1,4 @@
 <?php
-
 	try
 	{	
 		// file libraries + include console logging message
@@ -34,9 +33,9 @@
 			$connection_obj = new connection_helper("cs340db");
 
 			// grabbing connections string
-			$connection_obj_str =$connection_obj->get_connection_string();
+			$connection_obj_str = $connection_obj->get_connection_string();
 
-			//to make appointment
+			// making object to push the data to db 
 			$push_obj = new insert_data();	
 
 			if(isset($_POST['submitdata']))
@@ -56,7 +55,7 @@
 			$city =           $_REQUEST['city'];
 			$zipcode =        $_REQUEST['zipcode'];
 
-			$push_obj->push_data($location, $datetime_appt, $firstname, $middlename, $lastname, $address, $city, $state, $zipcode, $email, $confirm_email, $home_phoneNo, $mobile_phoneNo, $address, $city, $state, $zipcode);
+			$push_obj->push_data($location, $datetime_appt, $firstname, $middlename, $lastname, $address, $city, $state, $zipcode, $email, $confirm_email, $home_phoneNo, $mobile_phoneNo, $connection_obj_str );
 
 			//close connection string
 			$connection_obj_str->close();

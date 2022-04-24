@@ -1,7 +1,3 @@
-<head>
-    <link rel="stylesheet" href="css/footer.css">
-</head>
-
 <footer>
 
         <h3 id="oneFooter">Covid Info CC </h3>
