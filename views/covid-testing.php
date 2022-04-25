@@ -33,11 +33,11 @@
                 <p>Depending upon testing location, parking may be on/off site. If off site, parking fees may be required varying in rates. Please check local areas for parking information before departing.</p>
             </div>
 	
-            <table class="register-form" id="left-box">
+            <table class="register-form">
 
                 <tr>
                     <td>
-                    <h3>Make a COVID-19Appointment Test</h3>
+                        <h3><u>Register for COVID-19 Test Appointment</u></h3>
                     </td>
                 </tr>
 
@@ -140,7 +140,7 @@
                     <tr>
                         <th>
                             <label>Home Number:</label>
-                            <input type="text" name="home-phone" required>
+                            <input type="text" name="home-phone">
                         </th>
 
                         <th>
@@ -157,11 +157,16 @@
                     
                 </form>
             </table>
+				
+			<div id="appt_list_col">
+					<h4><u>Appointment List</u></h4>			
+					<a href="appt_list.php" class="export"><i class="dwn"></i> Export</a><br>
+						
+			</div>
                 
-
-            <table>
+            <table class="appts-form">
 	            <thead>
-		            <tr>
+		            <tr class="appts-form2">
                         <th>Service Location</th>
                         <th>appt_date</th>
                         <th>Appt Time</th>
@@ -219,8 +224,10 @@
                     ?>
 	            </tbody>
             </table>
-            
+
         </div> 
+
+        <hr>
 
 	</body>
 </html>
