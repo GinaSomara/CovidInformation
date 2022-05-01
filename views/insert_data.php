@@ -5,7 +5,6 @@ $js_code = '<script>' . $js_code . '</script>';
 
 class insert_data
 {
-
 	//declare properties
 	//declare sign-up function 
 	function push_data($location, $dt, $fname, $mname, $lname, $address, $city, $state, $zip, $email_addr, $c_email, $h_phone, $m_phone, $conn_str)
